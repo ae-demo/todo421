@@ -35,13 +35,13 @@ has access to a shared list.
 10. As a User, I want to see who a shared task is assigned to, so that I know who owns it.
 11. As a User, I want to remove a collaborator from a shared list, so that I can control who has access to it.
 12. As a User, I want to leave a shared list I was invited to, so that I stop seeing tasks that aren't mine anymore.
-13. As a User, I want to be notified when I'm invited to a list or assigned a task, so that I don't miss updates that affect me. *assumed*
+13. As a User, I want to be notified when I'm invited to a list or assigned a task, so that I don't miss updates that affect me.
 
 ## Product Decisions
 
 - Sign-in: every user signs in via SSO through Thunder, the platform identity provider.
-- Sharing model: a list has one owner (its creator) and zero or more collaborators the owner invites; any collaborator can add, edit, complete, and assign tasks on a shared list. *assumed*
-- Notifications for invitations and task assignments are delivered in-app only (no email or push channel). *assumed*
+- Sharing model: a list has one owner (its creator) and zero or more collaborators the owner invites; any collaborator can add, edit, complete, and assign tasks on a shared list.
+- Notifications for invitations and task assignments are delivered in-app only (no email or push channel).
 - No third-party integrations are needed for this product (no external calendar, email, or reminder service).
 
 ## Out of Scope
