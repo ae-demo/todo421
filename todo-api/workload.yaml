@@ -1,0 +1,29 @@
+apiVersion: openchoreo.dev/v1alpha1
+metadata:
+  name: todo-api
+
+endpoints:
+  - name: http
+    type: HTTP
+    port: 9090
+    basePath: /
+    visibility:
+      - project
+      - internal
+      - external
+
+dependencies:
+  resources:
+    - ref: todo421-todo-db
+      envBindings:
+        dbname: TODO_DB_DBNAME
+        host: TODO_DB_HOST
+        password: TODO_DB_PASSWORD
+        port: TODO_DB_PORT
+        user: TODO_DB_USER
+    - ref: todo421-user-auth
+      envBindings:
+        client_id: USER_AUTH_CLIENT_ID
+        issuer: USER_AUTH_ISSUER
+        jwks_url: USER_AUTH_JWKS_URL
+        scopes: USER_AUTH_SCOPES

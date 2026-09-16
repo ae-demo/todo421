@@ -1,0 +1,9 @@
+# crash artefacts — never wanted, in any component
+core
+core.*
+hs_err_pid*.log
+replay_pid*.log
+
+# todo-webapp (React SPA) build output and dependencies
+/todo-webapp/node_modules/
+/todo-webapp/dist/
