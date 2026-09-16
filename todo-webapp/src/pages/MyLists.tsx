@@ -28,6 +28,7 @@ export default function MyLists(): JSX.Element {
   const [createOpen, setCreateOpen] = useState(false);
   const [newListName, setNewListName] = useState("");
   const [creating, setCreating] = useState(false);
+  const [createError, setCreateError] = useState<string | null>(null);
 
   const load = useCallback(async () => {
     setError(null);
@@ -64,18 +65,28 @@ export default function MyLists(): JSX.Element {
   const handleCreate = async () => {
     if (!newListName.trim()) return;
     setCreating(true);
-    const { data, error: createError } = await todoApi.POST("/lists", {
+    setCreateError(null);
+    const { data, error: postError } = await todoApi.POST("/lists", {
       params: { header: CALLER_HEADER },
       body: { name: newListName.trim() },
     });
     setCreating(false);
-    if (createError || !data) {
-      setError("Could not create the list.");
+    if (postError || !data) {
+      // Surfaced inside the dialog itself: it's still open (modal) and would
+      // otherwise hide this alert behind its own backdrop, leaving the user
+      // stuck with no visible feedback and no way to reach the rest of the page.
+      setCreateError("Could not create the list. Please try again.");
       return;
     }
     setCreateOpen(false);
     setNewListName("");
     navigate(`/lists/${data.id}`);
+  };
+
+  const closeCreateDialog = () => {
+    setCreateOpen(false);
+    setNewListName("");
+    setCreateError(null);
   };
 
   return (
@@ -126,9 +137,14 @@ export default function MyLists(): JSX.Element {
         </ListingTable>
       </ListingTable.Container>
 
-      <Dialog open={createOpen} onClose={() => setCreateOpen(false)} fullWidth maxWidth="xs">
+      <Dialog open={createOpen} onClose={closeCreateDialog} fullWidth maxWidth="xs">
         <DialogTitle>New list</DialogTitle>
         <DialogContent>
+          {createError && (
+            <Alert severity="error" sx={{ mb: 2 }}>
+              {createError}
+            </Alert>
+          )}
           <TextField
             autoFocus
             fullWidth
@@ -139,7 +155,7 @@ export default function MyLists(): JSX.Element {
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setCreateOpen(false)}>Cancel</Button>
+          <Button onClick={closeCreateDialog}>Cancel</Button>
           <Button variant="contained" disabled={creating || !newListName.trim()} onClick={() => void handleCreate()}>
             Create
           </Button>
