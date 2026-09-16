@@ -121,10 +121,6 @@ export default defineConfig({
   use: {
     baseURL,
     trace: "retain-on-failure",
-    // Bounds a blocked action (e.g. a click behind a modal an API failure left
-    // open) to a fixed, informative wait instead of silently consuming the
-    // rest of the per-test timeout budget.
-    actionTimeout: 15_000,
     launchOptions: {
       args: hostResolverArgs(baseURL),
     },
