@@ -1,8 +1,8 @@
 # Validation report
 
 - **Issue:** #7
-- **Commit:** c3440120a3209c612226954c1b52556ada5ea8d5
-- **Generated:** 2026-09-16T07:15:51.675Z
+- **Commit:** d3dcdc563b31f0aef86ab7bb93aaa3f4169d4a2d
+- **Generated:** 2026-09-16T08:20:53.458Z
 - **Playwright:** 1.61.1
 
 ## Summary
@@ -55,14 +55,14 @@ Location: `AC-002-a.spec.ts:6`
 ```
 Error: expect(locator).toBeVisible() failed
 
-Locator: getByRole('heading', { name: 'ac002a-1789542419972', level: 1 })
+Locator: getByRole('heading', { name: 'ac002a-1789544951904', level: 1 })
 Expected: visible
 Timeout: 10000ms
 Error: element(s) not found
 
 Call log:
   - Expect "toBeVisible" with timeout 10000ms
-  - waiting for getByRole('heading', { name: 'ac002a-1789542419972', level: 1 })
+  - waiting for getByRole('heading', { name: 'ac002a-1789544951904', level: 1 })
 
 ```
 
@@ -72,10 +72,7 @@ Spec: `tests/e2e/specs/AC-002-b.spec.ts`
 Location: `AC-002-b.spec.ts:6`
 
 ```
-TimeoutError: locator.click: Timeout 15000ms exceeded.
-Call log:
-  - waiting for getByRole('link', { name: 'My Lists' })
-
+Test timeout of 90000ms exceeded.
 ```
 
 ### AC-003-a — A user can add a task to a list with a title
@@ -84,10 +81,7 @@ Spec: `tests/e2e/specs/AC-003-a.spec.ts`
 Location: `AC-003-a.spec.ts:6`
 
 ```
-TimeoutError: locator.click: Timeout 15000ms exceeded.
-Call log:
-  - waiting for getByRole('button', { name: 'Add Task' })
-
+Test timeout of 90000ms exceeded.
 ```
 
 ### AC-003-b — A task can be given a due date
@@ -96,10 +90,7 @@ Spec: `tests/e2e/specs/AC-003-b.spec.ts`
 Location: `AC-003-b.spec.ts:6`
 
 ```
-TimeoutError: locator.click: Timeout 15000ms exceeded.
-Call log:
-  - waiting for getByRole('button', { name: 'Add Task' })
-
+Test timeout of 90000ms exceeded.
 ```
 
 ### AC-003-c — A task can be given a priority
@@ -108,10 +99,7 @@ Spec: `tests/e2e/specs/AC-003-c.spec.ts`
 Location: `AC-003-c.spec.ts:6`
 
 ```
-TimeoutError: locator.click: Timeout 15000ms exceeded.
-Call log:
-  - waiting for getByRole('button', { name: 'Add Task' })
-
+Test timeout of 90000ms exceeded.
 ```
 
 ### AC-003-d — A task can be given one or more categories/tags
@@ -120,10 +108,7 @@ Spec: `tests/e2e/specs/AC-003-d.spec.ts`
 Location: `AC-003-d.spec.ts:6`
 
 ```
-TimeoutError: locator.click: Timeout 15000ms exceeded.
-Call log:
-  - waiting for getByRole('button', { name: 'Add Task' })
-
+Test timeout of 90000ms exceeded.
 ```
 
 ### AC-004-a — A user can edit an existing task's title, due date, priority, or categories/tags
@@ -132,10 +117,7 @@ Spec: `tests/e2e/specs/AC-004-a.spec.ts`
 Location: `AC-004-a.spec.ts:6`
 
 ```
-TimeoutError: locator.click: Timeout 15000ms exceeded.
-Call log:
-  - waiting for getByRole('button', { name: 'Add Task' })
-
+Test timeout of 90000ms exceeded.
 ```
 
 ### AC-004-b — Edited task details are reflected when the task is viewed again
@@ -144,10 +126,7 @@ Spec: `tests/e2e/specs/AC-004-b.spec.ts`
 Location: `AC-004-b.spec.ts:6`
 
 ```
-TimeoutError: locator.click: Timeout 15000ms exceeded.
-Call log:
-  - waiting for getByRole('button', { name: 'Add Task' })
-
+Test timeout of 90000ms exceeded.
 ```
 
 ### AC-005-a — A user can mark an incomplete task as complete
@@ -156,10 +135,7 @@ Spec: `tests/e2e/specs/AC-005-a.spec.ts`
 Location: `AC-005-a.spec.ts:6`
 
 ```
-TimeoutError: locator.click: Timeout 15000ms exceeded.
-Call log:
-  - waiting for getByRole('button', { name: 'Add Task' })
-
+Test timeout of 90000ms exceeded.
 ```
 
 ### AC-005-b — A user can mark a complete task as incomplete
@@ -168,10 +144,7 @@ Spec: `tests/e2e/specs/AC-005-b.spec.ts`
 Location: `AC-005-b.spec.ts:6`
 
 ```
-TimeoutError: locator.click: Timeout 15000ms exceeded.
-Call log:
-  - waiting for getByRole('button', { name: 'Add Task' })
-
+Test timeout of 90000ms exceeded.
 ```
 
 ### AC-006-a — A user can delete a task from a list
@@ -180,10 +153,7 @@ Spec: `tests/e2e/specs/AC-006-a.spec.ts`
 Location: `AC-006-a.spec.ts:6`
 
 ```
-TimeoutError: locator.click: Timeout 15000ms exceeded.
-Call log:
-  - waiting for getByRole('button', { name: 'Add Task' })
-
+Test timeout of 90000ms exceeded.
 ```
 
 ### AC-006-b — A deleted task no longer appears in the list's tasks
@@ -192,10 +162,7 @@ Spec: `tests/e2e/specs/AC-006-b.spec.ts`
 Location: `AC-006-b.spec.ts:6`
 
 ```
-TimeoutError: locator.click: Timeout 15000ms exceeded.
-Call log:
-  - waiting for getByRole('button', { name: 'Add Task' })
-
+Test timeout of 90000ms exceeded.
 ```
 
 ### AC-007-a — A user can filter tasks by priority
@@ -204,10 +171,7 @@ Spec: `tests/e2e/specs/AC-007-a.spec.ts`
 Location: `AC-007-a.spec.ts:6`
 
 ```
-TimeoutError: locator.click: Timeout 15000ms exceeded.
-Call log:
-  - waiting for getByRole('button', { name: 'Add Task' })
-
+Test timeout of 90000ms exceeded.
 ```
 
 ### AC-007-b — A user can filter tasks by category/tag
@@ -216,10 +180,7 @@ Spec: `tests/e2e/specs/AC-007-b.spec.ts`
 Location: `AC-007-b.spec.ts:6`
 
 ```
-TimeoutError: locator.fill: Timeout 60000ms exceeded.
-Call log:
-  - waiting for getByRole('textbox', { name: 'Username' })
-
+Test timeout of 90000ms exceeded.
 ```
 
 ### AC-007-c — A user can sort tasks by due date
@@ -228,10 +189,7 @@ Spec: `tests/e2e/specs/AC-007-c.spec.ts`
 Location: `AC-007-c.spec.ts:6`
 
 ```
-TimeoutError: locator.click: Timeout 15000ms exceeded.
-Call log:
-  - waiting for getByRole('button', { name: 'Add Task' })
-
+Test timeout of 90000ms exceeded.
 ```
 
 ### AC-008-a — A list owner can invite another user to a list
@@ -240,9 +198,6 @@ Spec: `tests/e2e/specs/AC-008-a.spec.ts`
 Location: `AC-008-a.spec.ts:6`
 
 ```
-TimeoutError: locator.click: Timeout 15000ms exceeded.
-Call log:
-  - waiting for getByRole('button', { name: 'Invite' })
-
+Test timeout of 90000ms exceeded.
 ```
 

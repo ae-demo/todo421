@@ -1,49 +1,17 @@
 {
   "schemaVersion": 1,
   "issue": 7,
-  "commit": "c3440120a3209c612226954c1b52556ada5ea8d5",
-  "generatedAt": "2026-09-16T07:15:51.675Z",
+  "commit": "d3dcdc563b31f0aef86ab7bb93aaa3f4169d4a2d",
+  "generatedAt": "2026-09-16T08:20:53.458Z",
   "playwrightVersion": "1.61.1",
   "batches": [
     {
-      "file": "2026-09-16T06-42-15-504Z.json",
+      "file": "2026-09-16T07-48-42-722Z.json",
+      "specs": 17
+    },
+    {
+      "file": "2026-09-16T08-17-42-382Z.json",
       "specs": 2
-    },
-    {
-      "file": "2026-09-16T06-44-10-681Z.json",
-      "specs": 3
-    },
-    {
-      "file": "2026-09-16T06-46-42-505Z.json",
-      "specs": 1
-    },
-    {
-      "file": "2026-09-16T06-47-01-281Z.json",
-      "specs": 1
-    },
-    {
-      "file": "2026-09-16T06-47-51-681Z.json",
-      "specs": 6
-    },
-    {
-      "file": "2026-09-16T06-51-02-976Z.json",
-      "specs": 6
-    },
-    {
-      "file": "2026-09-16T06-54-15-765Z.json",
-      "specs": 1
-    },
-    {
-      "file": "2026-09-16T06-54-51-456Z.json",
-      "specs": 4
-    },
-    {
-      "file": "2026-09-16T06-57-07-240Z.json",
-      "specs": 17
-    },
-    {
-      "file": "2026-09-16T07-06-31-412Z.json",
-      "specs": 17
     }
   ],
   "totals": {
@@ -67,9 +35,9 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 12702,
+      "durationMs": 12821,
       "failure": null,
-      "batch": "2026-09-16T07-06-31-412Z.json"
+      "batch": "2026-09-16T07-48-42-722Z.json"
     },
     {
       "id": "AC-001-b",
@@ -95,12 +63,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 25589,
+      "durationMs": 25330,
       "failure": {
-        "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('heading', { name: 'ac002a-1789542419972', level: 1 })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 10000ms\n  - waiting for getByRole('heading', { name: 'ac002a-1789542419972', level: 1 })\n",
+        "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('heading', { name: 'ac002a-1789544951904', level: 1 })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 10000ms\n  - waiting for getByRole('heading', { name: 'ac002a-1789544951904', level: 1 })\n",
         "location": "AC-002-a.spec.ts:6"
       },
-      "batch": "2026-09-16T07-06-31-412Z.json"
+      "batch": "2026-09-16T07-48-42-722Z.json"
     },
     {
       "id": "AC-002-b",
@@ -112,12 +80,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 30411,
+      "durationMs": 90617,
       "failure": {
-        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('link', { name: 'My Lists' })\n",
+        "message": "Test timeout of 90000ms exceeded.",
         "location": "AC-002-b.spec.ts:6"
       },
-      "batch": "2026-09-16T07-06-31-412Z.json"
+      "batch": "2026-09-16T07-48-42-722Z.json"
     },
     {
       "id": "AC-003-a",
@@ -129,12 +97,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 30654,
+      "durationMs": 90386,
       "failure": {
-        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Add Task' })\n",
+        "message": "Test timeout of 90000ms exceeded.",
         "location": "AC-003-a.spec.ts:6"
       },
-      "batch": "2026-09-16T07-06-31-412Z.json"
+      "batch": "2026-09-16T07-48-42-722Z.json"
     },
     {
       "id": "AC-003-b",
@@ -146,12 +114,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 30715,
+      "durationMs": 90506,
       "failure": {
-        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Add Task' })\n",
+        "message": "Test timeout of 90000ms exceeded.",
         "location": "AC-003-b.spec.ts:6"
       },
-      "batch": "2026-09-16T07-06-31-412Z.json"
+      "batch": "2026-09-16T07-48-42-722Z.json"
     },
     {
       "id": "AC-003-c",
@@ -163,12 +131,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 30689,
+      "durationMs": 90758,
       "failure": {
-        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Add Task' })\n",
+        "message": "Test timeout of 90000ms exceeded.",
         "location": "AC-003-c.spec.ts:6"
       },
-      "batch": "2026-09-16T07-06-31-412Z.json"
+      "batch": "2026-09-16T08-17-42-382Z.json"
     },
     {
       "id": "AC-003-d",
@@ -180,12 +148,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 30585,
+      "durationMs": 90513,
       "failure": {
-        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Add Task' })\n",
+        "message": "Test timeout of 90000ms exceeded.",
         "location": "AC-003-d.spec.ts:6"
       },
-      "batch": "2026-09-16T07-06-31-412Z.json"
+      "batch": "2026-09-16T07-48-42-722Z.json"
     },
     {
       "id": "AC-004-a",
@@ -197,12 +165,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 30592,
+      "durationMs": 90618,
       "failure": {
-        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Add Task' })\n",
+        "message": "Test timeout of 90000ms exceeded.",
         "location": "AC-004-a.spec.ts:6"
       },
-      "batch": "2026-09-16T07-06-31-412Z.json"
+      "batch": "2026-09-16T07-48-42-722Z.json"
     },
     {
       "id": "AC-004-b",
@@ -214,12 +182,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 30585,
+      "durationMs": 90391,
       "failure": {
-        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Add Task' })\n",
+        "message": "Test timeout of 90000ms exceeded.",
         "location": "AC-004-b.spec.ts:6"
       },
-      "batch": "2026-09-16T07-06-31-412Z.json"
+      "batch": "2026-09-16T07-48-42-722Z.json"
     },
     {
       "id": "AC-005-a",
@@ -231,12 +199,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 30367,
+      "durationMs": 90494,
       "failure": {
-        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Add Task' })\n",
+        "message": "Test timeout of 90000ms exceeded.",
         "location": "AC-005-a.spec.ts:6"
       },
-      "batch": "2026-09-16T07-06-31-412Z.json"
+      "batch": "2026-09-16T07-48-42-722Z.json"
     },
     {
       "id": "AC-005-b",
@@ -248,12 +216,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 30311,
+      "durationMs": 90505,
       "failure": {
-        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Add Task' })\n",
+        "message": "Test timeout of 90000ms exceeded.",
         "location": "AC-005-b.spec.ts:6"
       },
-      "batch": "2026-09-16T07-06-31-412Z.json"
+      "batch": "2026-09-16T07-48-42-722Z.json"
     },
     {
       "id": "AC-006-a",
@@ -265,12 +233,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 30455,
+      "durationMs": 90421,
       "failure": {
-        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Add Task' })\n",
+        "message": "Test timeout of 90000ms exceeded.",
         "location": "AC-006-a.spec.ts:6"
       },
-      "batch": "2026-09-16T07-06-31-412Z.json"
+      "batch": "2026-09-16T07-48-42-722Z.json"
     },
     {
       "id": "AC-006-b",
@@ -282,12 +250,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 30808,
+      "durationMs": 90671,
       "failure": {
-        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Add Task' })\n",
+        "message": "Test timeout of 90000ms exceeded.",
         "location": "AC-006-b.spec.ts:6"
       },
-      "batch": "2026-09-16T07-06-31-412Z.json"
+      "batch": "2026-09-16T08-17-42-382Z.json"
     },
     {
       "id": "AC-007-a",
@@ -299,12 +267,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 30511,
+      "durationMs": 90658,
       "failure": {
-        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Add Task' })\n",
+        "message": "Test timeout of 90000ms exceeded.",
         "location": "AC-007-a.spec.ts:6"
       },
-      "batch": "2026-09-16T07-06-31-412Z.json"
+      "batch": "2026-09-16T07-48-42-722Z.json"
     },
     {
       "id": "AC-007-b",
@@ -316,12 +284,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 61074,
+      "durationMs": 90426,
       "failure": {
-        "message": "TimeoutError: locator.fill: Timeout 60000ms exceeded.\nCall log:\n  - waiting for getByRole('textbox', { name: 'Username' })\n",
+        "message": "Test timeout of 90000ms exceeded.",
         "location": "AC-007-b.spec.ts:6"
       },
-      "batch": "2026-09-16T07-06-31-412Z.json"
+      "batch": "2026-09-16T07-48-42-722Z.json"
     },
     {
       "id": "AC-007-c",
@@ -333,12 +301,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 30776,
+      "durationMs": 90425,
       "failure": {
-        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Add Task' })\n",
+        "message": "Test timeout of 90000ms exceeded.",
         "location": "AC-007-c.spec.ts:6"
       },
-      "batch": "2026-09-16T07-06-31-412Z.json"
+      "batch": "2026-09-16T07-48-42-722Z.json"
     },
     {
       "id": "AC-008-a",
@@ -350,12 +318,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 31241,
+      "durationMs": 90421,
       "failure": {
-        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Invite' })\n",
+        "message": "Test timeout of 90000ms exceeded.",
         "location": "AC-008-a.spec.ts:6"
       },
-      "batch": "2026-09-16T07-06-31-412Z.json"
+      "batch": "2026-09-16T07-48-42-722Z.json"
     },
     {
       "id": "AC-008-b",

@@ -165,3 +165,60 @@ AC-012-a, AC-012-b, AC-013-a, AC-013-b all require a second user's own
 signed-in session (to accept an invite, be visible/act as a collaborator,
 receive a notification, or leave a list). See "Known environment
 limitation" above. All report `not_run`.
+
+## Re-validation — 2026-09-16 (after #25)
+
+Re-ran the full regression set (17 specs) against the deployed system after
+`fix(todo-webapp): absolute env-config.js path; surface create-list errors
+in-dialog (#25)` landed. Result unchanged from the prior cycle: 1 passing
+(AC-001-a), 16 failing at the same single root cause.
+
+**Secondary finding (nested-route crash) is fixed.** Confirmed live: a hard
+navigation to `/lists/<id>` now renders the full app shell (with an
+in-dialog "Could not load this list's tasks." error, per #25's second fix)
+instead of the blank white page from the prior cycle. `env-config.js` now
+loads from the app root regardless of route depth.
+
+**Primary finding (todo-api unreachable) persists, and is a gateway
+routing defect, not a webapp bug.** Traced live:
+
+- `todo-webapp/nginx/15-aep-api-proxy.sh` prefers `TODO_API_GATEWAY_URL`
+  (validated, identity-injecting lane) and falls back to `TODO_API_URL`
+  (direct Service, no validation) — see the script's own comment. But
+  `todo-webapp`'s `workload.yaml` / `design.json` wire only
+  `TODO_API_URL` for the `todo-api` dependency, even though `todo-api`'s
+  own `design.json` declares `exposesAPI.auth: end-user-required`. No
+  `TODO_API_GATEWAY_URL` binding exists to fall back from.
+- Whatever `TODO_API_URL` resolves to in the deployed pod, requests
+  proxied through it land on the exact same URL as the platform's
+  resolved `todo-api` gateway endpoint
+  (`https://default-default.apps.94.72.97.95.sslip.io:443/todo421-todo-api-http`):
+  hitting that URL directly, with or without a valid bearer token, with
+  or without the `/lists` suffix, returns the identical fast `404
+  {"error":"Not Found"}` from `server: envoy` — the same signature seen
+  through the webapp's own `/api/*` proxy. This is the gateway itself
+  reporting no route for the path, not `todo-api`'s own 404 handling
+  (which returns `{"code":404,"message":...}` per `todo-api/errors.bal`,
+  not `{"error":"Not Found"}`).
+- So this is not a webapp-side proxy misconfiguration to fix in
+  `nginx/default.conf` — the same URL 404s identically when hit directly,
+  from outside the cluster, bypassing the webapp entirely. The defect is
+  in how the `todo-api` component's gateway route was provisioned for
+  this deployment.
+
+**Two of the seventeen regression specs (AC-003-c, AC-006-b) failed their
+first run at the login step** (`waiting for getByRole('textbox', { name:
+'Username' })`, timeout) rather than at the primary defect — a known,
+already-budgeted-for flakiness in this IdP's redirect under load (see
+`lib/login.ts`'s comment). Triaged live per `references/healing.md`
+("Timing" — brittle, not genuine): a manual re-drive logged in in ~13s,
+matching the documented normal case. Not a locator or assertion problem,
+so no spec change; re-ran both in isolation
+(`npm test -- specs/AC-003-c.spec.ts specs/AC-006-b.spec.ts`) and both
+logged in cleanly on the retry, then failed at the same primary defect
+(`Add Task` never becomes available) as the other 14. That result
+supersedes the login-timeout run in the report per the newest-result-wins
+merge.
+
+No specs were healed this cycle — no locator drift, no test data
+collisions; every failure traces to the one live defect above.
