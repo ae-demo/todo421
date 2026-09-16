@@ -1,0 +1,487 @@
+{
+  "schemaVersion": 1,
+  "issue": 7,
+  "commit": "c3440120a3209c612226954c1b52556ada5ea8d5",
+  "generatedAt": "2026-09-16T07:15:51.675Z",
+  "playwrightVersion": "1.61.1",
+  "batches": [
+    {
+      "file": "2026-09-16T06-42-15-504Z.json",
+      "specs": 2
+    },
+    {
+      "file": "2026-09-16T06-44-10-681Z.json",
+      "specs": 3
+    },
+    {
+      "file": "2026-09-16T06-46-42-505Z.json",
+      "specs": 1
+    },
+    {
+      "file": "2026-09-16T06-47-01-281Z.json",
+      "specs": 1
+    },
+    {
+      "file": "2026-09-16T06-47-51-681Z.json",
+      "specs": 6
+    },
+    {
+      "file": "2026-09-16T06-51-02-976Z.json",
+      "specs": 6
+    },
+    {
+      "file": "2026-09-16T06-54-15-765Z.json",
+      "specs": 1
+    },
+    {
+      "file": "2026-09-16T06-54-51-456Z.json",
+      "specs": 4
+    },
+    {
+      "file": "2026-09-16T06-57-07-240Z.json",
+      "specs": 17
+    },
+    {
+      "file": "2026-09-16T07-06-31-412Z.json",
+      "specs": 17
+    }
+  ],
+  "totals": {
+    "e2e": {
+      "total": 27,
+      "pass": 1,
+      "fail": 16,
+      "notRun": 10
+    },
+    "manual": 0,
+    "scenario": 0
+  },
+  "criteria": [
+    {
+      "id": "AC-001-a",
+      "requirementId": "REQ-001",
+      "must": "An unauthenticated visitor is directed to sign in before seeing any todo data",
+      "method": "e2e",
+      "status": "pass",
+      "spec": "tests/e2e/specs/AC-001-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 12702,
+      "failure": null,
+      "batch": "2026-09-16T07-06-31-412Z.json"
+    },
+    {
+      "id": "AC-001-b",
+      "requirementId": "REQ-001",
+      "must": "After signing in, a user only sees lists they own or collaborate on, not other users' private lists",
+      "method": "e2e",
+      "status": "not_run",
+      "spec": null,
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 0,
+      "failure": null,
+      "batch": null
+    },
+    {
+      "id": "AC-002-a",
+      "requirementId": "REQ-002",
+      "must": "A user can create a new list by providing a name",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-002-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 25589,
+      "failure": {
+        "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('heading', { name: 'ac002a-1789542419972', level: 1 })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 10000ms\n  - waiting for getByRole('heading', { name: 'ac002a-1789542419972', level: 1 })\n",
+        "location": "AC-002-a.spec.ts:6"
+      },
+      "batch": "2026-09-16T07-06-31-412Z.json"
+    },
+    {
+      "id": "AC-002-b",
+      "requirementId": "REQ-002",
+      "must": "A newly created list appears in the user's list of lists",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-002-b.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 30411,
+      "failure": {
+        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('link', { name: 'My Lists' })\n",
+        "location": "AC-002-b.spec.ts:6"
+      },
+      "batch": "2026-09-16T07-06-31-412Z.json"
+    },
+    {
+      "id": "AC-003-a",
+      "requirementId": "REQ-003",
+      "must": "A user can add a task to a list with a title",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-003-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 30654,
+      "failure": {
+        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Add Task' })\n",
+        "location": "AC-003-a.spec.ts:6"
+      },
+      "batch": "2026-09-16T07-06-31-412Z.json"
+    },
+    {
+      "id": "AC-003-b",
+      "requirementId": "REQ-003",
+      "must": "A task can be given a due date",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-003-b.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 30715,
+      "failure": {
+        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Add Task' })\n",
+        "location": "AC-003-b.spec.ts:6"
+      },
+      "batch": "2026-09-16T07-06-31-412Z.json"
+    },
+    {
+      "id": "AC-003-c",
+      "requirementId": "REQ-003",
+      "must": "A task can be given a priority",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-003-c.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 30689,
+      "failure": {
+        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Add Task' })\n",
+        "location": "AC-003-c.spec.ts:6"
+      },
+      "batch": "2026-09-16T07-06-31-412Z.json"
+    },
+    {
+      "id": "AC-003-d",
+      "requirementId": "REQ-003",
+      "must": "A task can be given one or more categories/tags",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-003-d.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 30585,
+      "failure": {
+        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Add Task' })\n",
+        "location": "AC-003-d.spec.ts:6"
+      },
+      "batch": "2026-09-16T07-06-31-412Z.json"
+    },
+    {
+      "id": "AC-004-a",
+      "requirementId": "REQ-004",
+      "must": "A user can edit an existing task's title, due date, priority, or categories/tags",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-004-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 30592,
+      "failure": {
+        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Add Task' })\n",
+        "location": "AC-004-a.spec.ts:6"
+      },
+      "batch": "2026-09-16T07-06-31-412Z.json"
+    },
+    {
+      "id": "AC-004-b",
+      "requirementId": "REQ-004",
+      "must": "Edited task details are reflected when the task is viewed again",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-004-b.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 30585,
+      "failure": {
+        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Add Task' })\n",
+        "location": "AC-004-b.spec.ts:6"
+      },
+      "batch": "2026-09-16T07-06-31-412Z.json"
+    },
+    {
+      "id": "AC-005-a",
+      "requirementId": "REQ-005",
+      "must": "A user can mark an incomplete task as complete",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-005-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 30367,
+      "failure": {
+        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Add Task' })\n",
+        "location": "AC-005-a.spec.ts:6"
+      },
+      "batch": "2026-09-16T07-06-31-412Z.json"
+    },
+    {
+      "id": "AC-005-b",
+      "requirementId": "REQ-005",
+      "must": "A user can mark a complete task as incomplete",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-005-b.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 30311,
+      "failure": {
+        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Add Task' })\n",
+        "location": "AC-005-b.spec.ts:6"
+      },
+      "batch": "2026-09-16T07-06-31-412Z.json"
+    },
+    {
+      "id": "AC-006-a",
+      "requirementId": "REQ-006",
+      "must": "A user can delete a task from a list",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-006-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 30455,
+      "failure": {
+        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Add Task' })\n",
+        "location": "AC-006-a.spec.ts:6"
+      },
+      "batch": "2026-09-16T07-06-31-412Z.json"
+    },
+    {
+      "id": "AC-006-b",
+      "requirementId": "REQ-006",
+      "must": "A deleted task no longer appears in the list's tasks",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-006-b.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 30808,
+      "failure": {
+        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Add Task' })\n",
+        "location": "AC-006-b.spec.ts:6"
+      },
+      "batch": "2026-09-16T07-06-31-412Z.json"
+    },
+    {
+      "id": "AC-007-a",
+      "requirementId": "REQ-007",
+      "must": "A user can filter tasks by priority",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-007-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 30511,
+      "failure": {
+        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Add Task' })\n",
+        "location": "AC-007-a.spec.ts:6"
+      },
+      "batch": "2026-09-16T07-06-31-412Z.json"
+    },
+    {
+      "id": "AC-007-b",
+      "requirementId": "REQ-007",
+      "must": "A user can filter tasks by category/tag",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-007-b.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 61074,
+      "failure": {
+        "message": "TimeoutError: locator.fill: Timeout 60000ms exceeded.\nCall log:\n  - waiting for getByRole('textbox', { name: 'Username' })\n",
+        "location": "AC-007-b.spec.ts:6"
+      },
+      "batch": "2026-09-16T07-06-31-412Z.json"
+    },
+    {
+      "id": "AC-007-c",
+      "requirementId": "REQ-007",
+      "must": "A user can sort tasks by due date",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-007-c.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 30776,
+      "failure": {
+        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Add Task' })\n",
+        "location": "AC-007-c.spec.ts:6"
+      },
+      "batch": "2026-09-16T07-06-31-412Z.json"
+    },
+    {
+      "id": "AC-008-a",
+      "requirementId": "REQ-008",
+      "must": "A list owner can invite another user to a list",
+      "method": "e2e",
+      "status": "fail",
+      "spec": "tests/e2e/specs/AC-008-a.spec.ts",
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 31241,
+      "failure": {
+        "message": "TimeoutError: locator.click: Timeout 15000ms exceeded.\nCall log:\n  - waiting for getByRole('button', { name: 'Invite' })\n",
+        "location": "AC-008-a.spec.ts:6"
+      },
+      "batch": "2026-09-16T07-06-31-412Z.json"
+    },
+    {
+      "id": "AC-008-b",
+      "requirementId": "REQ-008",
+      "must": "The invited user gains access to the shared list once they accept",
+      "method": "e2e",
+      "status": "not_run",
+      "spec": null,
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 0,
+      "failure": null,
+      "batch": null
+    },
+    {
+      "id": "AC-009-a",
+      "requirementId": "REQ-009",
+      "must": "A user can assign a task on a shared list to a specific collaborator",
+      "method": "e2e",
+      "status": "not_run",
+      "spec": null,
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 0,
+      "failure": null,
+      "batch": null
+    },
+    {
+      "id": "AC-010-a",
+      "requirementId": "REQ-010",
+      "must": "The assignee of a shared task is visible to collaborators on the list",
+      "method": "e2e",
+      "status": "not_run",
+      "spec": null,
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 0,
+      "failure": null,
+      "batch": null
+    },
+    {
+      "id": "AC-011-a",
+      "requirementId": "REQ-011",
+      "must": "A list owner can remove a collaborator from a shared list",
+      "method": "e2e",
+      "status": "not_run",
+      "spec": null,
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 0,
+      "failure": null,
+      "batch": null
+    },
+    {
+      "id": "AC-011-b",
+      "requirementId": "REQ-011",
+      "must": "A removed collaborator no longer has access to the list",
+      "method": "e2e",
+      "status": "not_run",
+      "spec": null,
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 0,
+      "failure": null,
+      "batch": null
+    },
+    {
+      "id": "AC-012-a",
+      "requirementId": "REQ-012",
+      "must": "A collaborator can leave a shared list",
+      "method": "e2e",
+      "status": "not_run",
+      "spec": null,
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 0,
+      "failure": null,
+      "batch": null
+    },
+    {
+      "id": "AC-012-b",
+      "requirementId": "REQ-012",
+      "must": "A list the user has left no longer appears in their list of lists",
+      "method": "e2e",
+      "status": "not_run",
+      "spec": null,
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 0,
+      "failure": null,
+      "batch": null
+    },
+    {
+      "id": "AC-013-a",
+      "requirementId": "REQ-013",
+      "must": "A user receives an in-app notification when invited to a shared list",
+      "method": "e2e",
+      "status": "not_run",
+      "spec": null,
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 0,
+      "failure": null,
+      "batch": null
+    },
+    {
+      "id": "AC-013-b",
+      "requirementId": "REQ-013",
+      "must": "A user receives an in-app notification when assigned a task",
+      "method": "e2e",
+      "status": "not_run",
+      "spec": null,
+      "healed": false,
+      "healAttempts": 0,
+      "flaky": false,
+      "durationMs": 0,
+      "failure": null,
+      "batch": null
+    }
+  ]
+}

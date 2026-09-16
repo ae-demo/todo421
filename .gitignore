@@ -7,3 +7,6 @@ replay_pid*.log
 # todo-webapp (React SPA) build output and dependencies
 /todo-webapp/node_modules/
 /todo-webapp/dist/
+
+# playwright-cli exploration sessions (validation authoring)
+/.playwright-cli/

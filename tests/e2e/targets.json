@@ -1,0 +1,7 @@
+{
+  "targets": {
+    "todo-api": "https://default-default.apps.94.72.97.95.sslip.io:443/todo421-todo-api-http",
+    "todo-webapp": "https://http-todo421-todo--default-default-9e1361b1.apps.94.72.97.95.sslip.io:443/"
+  },
+  "primary": "todo-webapp"
+}

@@ -1,0 +1,167 @@
+# Validation test plan — todo421 v1
+
+Target: `todo-webapp` (primary, drives `todo-api` through its same-origin
+`/api` proxy). Authenticated specs sign in as `test-user` (role `User`,
+`AEP_E2E_USERNAME`/`AEP_E2E_PASSWORD` from the roles gate ticket, issue #3)
+via `tests/e2e/lib/login.ts`, which drives the real Thunder sign-in form.
+
+## Known environment limitation: single test identity
+
+The roles gate ticket (issue #3) provisioned exactly one test account
+(`test-user`, role `User`) — the design declares a single role, and the
+platform provisions one account per role. The deployed identity provider
+(`https://default-idp.94.72.97.95.sslip.io`) offers no self-service sign-up
+(confirmed live: the sign-in gate has no registration link, and
+`/gate/register` renders an empty shell). So there is no way to obtain a
+second, distinct signed-in identity in this environment.
+
+Ten criteria (AC-001-b, AC-008-b, AC-009-a, AC-010-a, AC-011-a, AC-011-b,
+AC-012-a, AC-012-b, AC-013-a, AC-013-b) require either a second user's
+pre-existing private data (to prove exclusion) or a second user's own
+session (to accept an invite, view an assignment, receive a notification,
+or leave a list as a collaborator). None of these can be genuinely
+constructed with one identity without fabricating a login the platform
+did not provision, so **no spec is authored for them** — they land
+`not_run` in the report, with this note as the reason. This is a test-
+environment limitation, not a judgment about the app's correctness for
+those criteria.
+
+## Environment finding (observed before authoring)
+
+Live exploration on 2026-09-16 found the deployed `todo-webapp` cannot
+reach `todo-api` at all: every call through its same-origin `/api/*` proxy
+(e.g. `GET /api/lists`) returns HTTP 404 `{"error":"Not Found"}` from the
+gateway (`server: envoy`), and the same 404 reproduces calling the
+`todo-api` gateway URL directly (`todo421-todo-api-http/lists`). This
+blocks every criterion below that touches list/task/notification data —
+each is authored and run honestly against the live app per the workflow
+("author the spec anyway so it fails honestly"), and the failures are
+expected to trace to this one root cause. See the report's Failures
+section and the PR body for the full finding.
+
+---
+
+## AC-001-a — An unauthenticated visitor is directed to sign in before seeing any todo data
+
+- Target: todo-webapp (primary)
+- Steps:
+  1. Open a fresh (unauthenticated) browser context
+  2. Navigate to `/`
+- Assert: the browser ends up on the identity provider's sign-in page
+  (URL contains the IdP host) with a "Sign In" heading visible, before any
+  todo screen renders
+- Source of truth: live (AuthGate redirects to `signIn()` before rendering
+  children); confirmed by playwright-cli exploration
+
+## AC-001-b — After signing in, a user only sees lists they own or collaborate on, not other users' private lists
+
+- **Not authored** — needs a second user's private list to prove exclusion.
+  See "Known environment limitation" above. Reports `not_run`.
+
+## AC-002-a — A user can create a new list by providing a name
+
+- Target: todo-webapp
+- Steps:
+  1. Sign in as test-user
+  2. Click "New List"
+  3. Fill the list name field with a unique name
+  4. Click "Create"
+- Assert: navigation lands on the new list's detail page, showing that name
+  as the page heading
+- Source of truth: `todo-webapp/src/pages/MyLists.tsx` (dialog + `handleCreate`
+  navigates to `/lists/{id}`), confirmed live
+
+## AC-002-b — A newly created list appears in the user's list of lists
+
+- Target: todo-webapp
+- Steps:
+  1. Sign in as test-user
+  2. Create a list with a unique name (as AC-002-a)
+  3. Navigate back via the "My Lists" breadcrumb
+- Assert: the My Lists table contains a row with that list's name
+- Source of truth: `todo-webapp/src/pages/MyLists.tsx` listing table
+
+## AC-003-a — A user can add a task to a list with a title
+
+- Steps: sign in, create a list, click "Add Task", fill Title, Save
+- Assert: the list detail table shows a row with that title
+- Source: `todo-webapp/src/pages/TaskForm.tsx`, `ListDetail.tsx`
+
+## AC-003-b — A task can be given a due date
+
+- Steps: as above, additionally fill the Due date field
+- Assert: the task row's Due cell shows the date
+
+## AC-003-c — A task can be given a priority
+
+- Steps: as above, select Priority = High
+- Assert: the task row's Priority cell shows a "High" chip
+
+## AC-003-d — A task can be given one or more categories/tags
+
+- Steps: as above, fill Categories/tags with "groceries, urgent"
+- Assert: the task row shows both "groceries" and "urgent" chips
+
+## AC-004-a — A user can edit an existing task's title, due date, priority, or categories/tags
+
+- Steps: sign in, create list + task, open the task row, change title/due
+  date/priority/categories, Save
+- Assert: back on the list detail page, the row shows the updated title
+
+## AC-004-b — Edited task details are reflected when the task is viewed again
+
+- Steps: as AC-004-a, then re-open the task edit page
+- Assert: the form fields show the updated title/due date/priority
+
+## AC-005-a — A user can mark an incomplete task as complete
+
+- Steps: sign in, create list + task (incomplete by default), click its Done
+  checkbox
+- Assert: reloading the list detail page shows the checkbox checked
+
+## AC-005-b — A user can mark a complete task as incomplete
+
+- Steps: as AC-005-a, then click the checkbox again
+- Assert: reloading shows the checkbox unchecked
+
+## AC-006-a — A user can delete a task from a list
+
+- Steps: sign in, create list + task, click the task's delete (trash) icon
+- Assert: the row disappears from the table
+
+## AC-006-b — A deleted task no longer appears in the list's tasks
+
+- Steps: as AC-006-a, then reload the list detail page
+- Assert: the task's title is not present after reload (persisted deletion)
+
+## AC-007-a — A user can filter tasks by priority
+
+- Steps: sign in, create a list with a High-priority and a Low-priority task,
+  set the Priority filter to High
+- Assert: the High task is visible, the Low task is not
+
+## AC-007-b — A user can filter tasks by category/tag
+
+- Steps: create a list with two tasks tagged with distinct categories, filter
+  by one category
+- Assert: only the matching task is visible
+
+## AC-007-c — A user can sort tasks by due date
+
+- Steps: create a list with two tasks with different due dates, set "Sort by
+  due date" = Due date
+- Assert: the earlier-due task's row precedes the later-due task's row
+
+## AC-008-a — A list owner can invite another user to a list
+
+- Steps: sign in, create a list, click Invite, fill an email, Send Invite
+- Assert: back on the Invite/manage page, a row for that email appears with
+  role "Invited"
+
+## AC-008-b through AC-013-b (multi-identity criteria)
+
+**Not authored** — AC-008-b, AC-009-a, AC-010-a, AC-011-a, AC-011-b,
+AC-012-a, AC-012-b, AC-013-a, AC-013-b all require a second user's own
+signed-in session (to accept an invite, be visible/act as a collaborator,
+receive a notification, or leave a list). See "Known environment
+limitation" above. All report `not_run`.
