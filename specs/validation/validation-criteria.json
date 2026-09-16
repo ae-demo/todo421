@@ -1,0 +1,122 @@
+{
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "statement": "A user can sign in with their account so their todos are private to them",
+      "stories": [1],
+      "criteria": [
+        { "id": "AC-001-a", "must": "An unauthenticated visitor is directed to sign in before seeing any todo data", "method": "e2e" },
+        { "id": "AC-001-b", "must": "After signing in, a user only sees lists they own or collaborate on, not other users' private lists", "method": "e2e" }
+      ]
+    },
+    {
+      "id": "REQ-002",
+      "statement": "A user can create a todo list to organize related tasks together",
+      "stories": [2],
+      "criteria": [
+        { "id": "AC-002-a", "must": "A user can create a new list by providing a name", "method": "e2e" },
+        { "id": "AC-002-b", "must": "A newly created list appears in the user's list of lists", "method": "e2e" }
+      ]
+    },
+    {
+      "id": "REQ-003",
+      "statement": "A user can add a task to a list with a title, due date, priority, and categories/tags",
+      "stories": [3],
+      "criteria": [
+        { "id": "AC-003-a", "must": "A user can add a task to a list with a title", "method": "e2e" },
+        { "id": "AC-003-b", "must": "A task can be given a due date", "method": "e2e" },
+        { "id": "AC-003-c", "must": "A task can be given a priority", "method": "e2e" },
+        { "id": "AC-003-d", "must": "A task can be given one or more categories/tags", "method": "e2e" }
+      ]
+    },
+    {
+      "id": "REQ-004",
+      "statement": "A user can edit a task's details",
+      "stories": [4],
+      "criteria": [
+        { "id": "AC-004-a", "must": "A user can edit an existing task's title, due date, priority, or categories/tags", "method": "e2e" },
+        { "id": "AC-004-b", "must": "Edited task details are reflected when the task is viewed again", "method": "e2e" }
+      ]
+    },
+    {
+      "id": "REQ-005",
+      "statement": "A user can mark a task complete or incomplete to track progress",
+      "stories": [5],
+      "criteria": [
+        { "id": "AC-005-a", "must": "A user can mark an incomplete task as complete", "method": "e2e" },
+        { "id": "AC-005-b", "must": "A user can mark a complete task as incomplete", "method": "e2e" }
+      ]
+    },
+    {
+      "id": "REQ-006",
+      "statement": "A user can delete a task they no longer need",
+      "stories": [6],
+      "criteria": [
+        { "id": "AC-006-a", "must": "A user can delete a task from a list", "method": "e2e" },
+        { "id": "AC-006-b", "must": "A deleted task no longer appears in the list's tasks", "method": "e2e" }
+      ]
+    },
+    {
+      "id": "REQ-007",
+      "statement": "A user can filter and sort their tasks by due date, priority, or category/tag",
+      "stories": [7],
+      "criteria": [
+        { "id": "AC-007-a", "must": "A user can filter tasks by priority", "method": "e2e" },
+        { "id": "AC-007-b", "must": "A user can filter tasks by category/tag", "method": "e2e" },
+        { "id": "AC-007-c", "must": "A user can sort tasks by due date", "method": "e2e" }
+      ]
+    },
+    {
+      "id": "REQ-008",
+      "statement": "A user can invite another user to a shared list so they can manage tasks together",
+      "stories": [8],
+      "criteria": [
+        { "id": "AC-008-a", "must": "A list owner can invite another user to a list", "method": "e2e" },
+        { "id": "AC-008-b", "must": "The invited user gains access to the shared list once they accept", "method": "e2e" }
+      ]
+    },
+    {
+      "id": "REQ-009",
+      "statement": "A user can assign a task on a shared list to a specific collaborator",
+      "stories": [9],
+      "criteria": [
+        { "id": "AC-009-a", "must": "A user can assign a task on a shared list to a specific collaborator", "method": "e2e" }
+      ]
+    },
+    {
+      "id": "REQ-010",
+      "statement": "A user can see who a shared task is assigned to",
+      "stories": [10],
+      "criteria": [
+        { "id": "AC-010-a", "must": "The assignee of a shared task is visible to collaborators on the list", "method": "e2e" }
+      ]
+    },
+    {
+      "id": "REQ-011",
+      "statement": "A user can remove a collaborator from a shared list to control access",
+      "stories": [11],
+      "criteria": [
+        { "id": "AC-011-a", "must": "A list owner can remove a collaborator from a shared list", "method": "e2e" },
+        { "id": "AC-011-b", "must": "A removed collaborator no longer has access to the list", "method": "e2e" }
+      ]
+    },
+    {
+      "id": "REQ-012",
+      "statement": "A user can leave a shared list they were invited to",
+      "stories": [12],
+      "criteria": [
+        { "id": "AC-012-a", "must": "A collaborator can leave a shared list", "method": "e2e" },
+        { "id": "AC-012-b", "must": "A list the user has left no longer appears in their list of lists", "method": "e2e" }
+      ]
+    },
+    {
+      "id": "REQ-013",
+      "statement": "A user is notified in-app when invited to a list or assigned a task",
+      "stories": [13],
+      "criteria": [
+        { "id": "AC-013-a", "must": "A user receives an in-app notification when invited to a shared list", "method": "e2e" },
+        { "id": "AC-013-b", "must": "A user receives an in-app notification when assigned a task", "method": "e2e" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "coldStartRole": "User",
+  "publicComponents": [],
+  "roles": [
+    {
+      "name": "User",
+      "description": "A signed-in person who manages their own todo lists and collaborates on shared lists.",
+      "stories": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+      "grantedBy": "first sign-in",
+      "permissions": [
+        { "component": "todo-api", "actions": ["manage own lists", "manage tasks on lists they own or collaborate on", "invite and remove collaborators on lists they own", "leave shared lists", "read own notifications"] },
+        { "component": "todo-webapp", "screens": ["MyLists", "ListDetail", "TaskForm", "InviteCollaborator", "Notifications"] }
+      ]
+    }
+  ],
+  "testUsers": [
+    { "username": "test-user", "role": "User" }
+  ],
+  "thunder": {
+    "name": "Todo App",
+    "type": "browser",
+    "scopes": "openid profile email group ou"
+  }
+}
