@@ -1,0 +1,3 @@
+# Reference documents are transient turn inputs, not spec artifacts.
+# The platform overlays them into each turn's workspace; they are never committed.
+requirements/references/
