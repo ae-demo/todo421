@@ -273,3 +273,38 @@ redirect itself:
 - The single-test-identity limitation from the 2026-09-16 entry is
   unchanged — the roles gate ticket still provisions only `test-user`,
   so the 10 not_run criteria remain not_run for the same reason.
+
+## Re-validation — 2026-09-17 (second pass, same day)
+
+Re-ran the full regression set (17 specs) against the deployed system.
+No app or platform commit has landed since the prior cycle's PR #27
+(still open, unmerged) — this run re-checks whether either infra defect
+it reported had since resolved.
+
+**Result: 0/17 passing — unchanged from the prior cycle.**
+
+- **CORS block on the IdP's OIDC discovery document persists.**
+  Re-confirmed live via a fresh playwright-cli console trace on `/`:
+  `Access to fetch at 'https://default-idp.94.72.97.95.sslip.io/.well-known/openid-configuration'
+  ... has been blocked by CORS policy: No 'Access-Control-Allow-Origin'
+  header is present`, and independently via `curl` with an `Origin`
+  header on both `GET` and the `OPTIONS` preflight — neither response
+  carries `Access-Control-Allow-Origin`. This is why AC-001-a still
+  fails (the app never navigates to the IdP) and now also explains why
+  every other spec fails at `lib/login.ts`'s `Username` textbox wait:
+  that helper reaches the sign-in form only via the app's own
+  `signinRedirect()`, which cannot complete while this fetch is
+  blocked — there is no path to a signed-in session left in this
+  environment, browser-driven or otherwise.
+- **`todo-api`'s gateway route still 404s**, re-confirmed with a direct
+  `curl` to `.../todo421-todo-api-http/lists` (`404
+  {"error":"Not Found"}`, `server: envoy`) — moot for this cycle's
+  result since login itself is blocked first, but unchanged from the
+  2026-09-16 finding.
+- No spec was healed: both are genuine, live-reproduced defects, not
+  brittleness. The single-test-identity limitation is unchanged; the 10
+  not_run criteria remain not_run for the same reason.
+- Neither defect is fixable from this repo's application code (both are
+  in how the `user-auth` and `todo-api` platform resources are
+  configured/routed for this deployment) — flagging for the platform
+  rather than authoring a workaround.

@@ -1,8 +1,8 @@
 # Validation report
 
 - **Issue:** #7
-- **Commit:** d07812d65d42c387783bd3f4fd464e084dddd17b
-- **Generated:** 2026-09-17T07:46:03.680Z
+- **Commit:** 644852ec8101ee412bffa9c79a43d50b64e5f07b
+- **Generated:** 2026-09-17T08:49:16.512Z
 - **Playwright:** 1.61.1
 
 ## Summary
@@ -83,7 +83,10 @@ Spec: `tests/e2e/specs/AC-002-b.spec.ts`
 Location: `AC-002-b.spec.ts:6`
 
 ```
-Test timeout of 90000ms exceeded.
+TimeoutError: locator.fill: Timeout 60000ms exceeded.
+Call log:
+  - waiting for getByRole('textbox', { name: 'Username' })
+
 ```
 
 ### AC-003-a — A user can add a task to a list with a title
@@ -92,7 +95,10 @@ Spec: `tests/e2e/specs/AC-003-a.spec.ts`
 Location: `AC-003-a.spec.ts:6`
 
 ```
-Test timeout of 90000ms exceeded.
+TimeoutError: locator.fill: Timeout 60000ms exceeded.
+Call log:
+  - waiting for getByRole('textbox', { name: 'Username' })
+
 ```
 
 ### AC-003-b — A task can be given a due date
@@ -101,7 +107,10 @@ Spec: `tests/e2e/specs/AC-003-b.spec.ts`
 Location: `AC-003-b.spec.ts:6`
 
 ```
-Test timeout of 90000ms exceeded.
+TimeoutError: locator.fill: Timeout 60000ms exceeded.
+Call log:
+  - waiting for getByRole('textbox', { name: 'Username' })
+
 ```
 
 ### AC-003-c — A task can be given a priority
@@ -110,7 +119,10 @@ Spec: `tests/e2e/specs/AC-003-c.spec.ts`
 Location: `AC-003-c.spec.ts:6`
 
 ```
-Test timeout of 90000ms exceeded.
+TimeoutError: locator.fill: Timeout 60000ms exceeded.
+Call log:
+  - waiting for getByRole('textbox', { name: 'Username' })
+
 ```
 
 ### AC-003-d — A task can be given one or more categories/tags
@@ -119,7 +131,10 @@ Spec: `tests/e2e/specs/AC-003-d.spec.ts`
 Location: `AC-003-d.spec.ts:6`
 
 ```
-Test timeout of 90000ms exceeded.
+TimeoutError: locator.fill: Timeout 60000ms exceeded.
+Call log:
+  - waiting for getByRole('textbox', { name: 'Username' })
+
 ```
 
 ### AC-004-a — A user can edit an existing task's title, due date, priority, or categories/tags
