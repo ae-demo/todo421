@@ -1,24 +1,20 @@
 {
   "schemaVersion": 1,
   "issue": 7,
-  "commit": "d3dcdc563b31f0aef86ab7bb93aaa3f4169d4a2d",
-  "generatedAt": "2026-09-16T08:20:53.458Z",
+  "commit": "644852ec8101ee412bffa9c79a43d50b64e5f07b",
+  "generatedAt": "2026-09-17T08:49:16.512Z",
   "playwrightVersion": "1.61.1",
   "batches": [
     {
-      "file": "2026-09-16T07-48-42-722Z.json",
+      "file": "2026-09-17T08-27-19-067Z.json",
       "specs": 17
-    },
-    {
-      "file": "2026-09-16T08-17-42-382Z.json",
-      "specs": 2
     }
   ],
   "totals": {
     "e2e": {
       "total": 27,
-      "pass": 1,
-      "fail": 16,
+      "pass": 0,
+      "fail": 17,
       "notRun": 10
     },
     "manual": 0,
@@ -30,14 +26,17 @@
       "requirementId": "REQ-001",
       "must": "An unauthenticated visitor is directed to sign in before seeing any todo data",
       "method": "e2e",
-      "status": "pass",
+      "status": "fail",
       "spec": "tests/e2e/specs/AC-001-a.spec.ts",
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 12821,
-      "failure": null,
-      "batch": "2026-09-16T07-48-42-722Z.json"
+      "durationMs": 31750,
+      "failure": {
+        "message": "Error: expect(page).toHaveURL(expected) failed\n\nExpected pattern: /default-idp/\nReceived string:  \"https://http-todo421-todo--default-default-9e1361b1.apps.94.72.97.95.sslip.io/\"\nTimeout: 30000ms\n\nCall log:\n  - Expect \"toHaveURL\" with timeout 30000ms\n    63 × unexpected value \"https://http-todo421-todo--default-default-9e1361b1.apps.94.72.97.95.sslip.io/\"\n",
+        "location": "AC-001-a.spec.ts:4"
+      },
+      "batch": "2026-09-17T08-27-19-067Z.json"
     },
     {
       "id": "AC-001-b",
@@ -63,12 +62,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 25330,
+      "durationMs": 61546,
       "failure": {
-        "message": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByRole('heading', { name: 'ac002a-1789544951904', level: 1 })\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" with timeout 10000ms\n  - waiting for getByRole('heading', { name: 'ac002a-1789544951904', level: 1 })\n",
+        "message": "TimeoutError: locator.fill: Timeout 60000ms exceeded.\nCall log:\n  - waiting for getByRole('textbox', { name: 'Username' })\n",
         "location": "AC-002-a.spec.ts:6"
       },
-      "batch": "2026-09-16T07-48-42-722Z.json"
+      "batch": "2026-09-17T08-27-19-067Z.json"
     },
     {
       "id": "AC-002-b",
@@ -80,12 +79,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 90617,
+      "durationMs": 61390,
       "failure": {
-        "message": "Test timeout of 90000ms exceeded.",
+        "message": "TimeoutError: locator.fill: Timeout 60000ms exceeded.\nCall log:\n  - waiting for getByRole('textbox', { name: 'Username' })\n",
         "location": "AC-002-b.spec.ts:6"
       },
-      "batch": "2026-09-16T07-48-42-722Z.json"
+      "batch": "2026-09-17T08-27-19-067Z.json"
     },
     {
       "id": "AC-003-a",
@@ -97,12 +96,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 90386,
+      "durationMs": 62045,
       "failure": {
-        "message": "Test timeout of 90000ms exceeded.",
+        "message": "TimeoutError: locator.fill: Timeout 60000ms exceeded.\nCall log:\n  - waiting for getByRole('textbox', { name: 'Username' })\n",
         "location": "AC-003-a.spec.ts:6"
       },
-      "batch": "2026-09-16T07-48-42-722Z.json"
+      "batch": "2026-09-17T08-27-19-067Z.json"
     },
     {
       "id": "AC-003-b",
@@ -114,12 +113,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 90506,
+      "durationMs": 61458,
       "failure": {
-        "message": "Test timeout of 90000ms exceeded.",
+        "message": "TimeoutError: locator.fill: Timeout 60000ms exceeded.\nCall log:\n  - waiting for getByRole('textbox', { name: 'Username' })\n",
         "location": "AC-003-b.spec.ts:6"
       },
-      "batch": "2026-09-16T07-48-42-722Z.json"
+      "batch": "2026-09-17T08-27-19-067Z.json"
     },
     {
       "id": "AC-003-c",
@@ -131,12 +130,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 90758,
+      "durationMs": 61367,
       "failure": {
-        "message": "Test timeout of 90000ms exceeded.",
+        "message": "TimeoutError: locator.fill: Timeout 60000ms exceeded.\nCall log:\n  - waiting for getByRole('textbox', { name: 'Username' })\n",
         "location": "AC-003-c.spec.ts:6"
       },
-      "batch": "2026-09-16T08-17-42-382Z.json"
+      "batch": "2026-09-17T08-27-19-067Z.json"
     },
     {
       "id": "AC-003-d",
@@ -148,12 +147,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 90513,
+      "durationMs": 61415,
       "failure": {
-        "message": "Test timeout of 90000ms exceeded.",
+        "message": "TimeoutError: locator.fill: Timeout 60000ms exceeded.\nCall log:\n  - waiting for getByRole('textbox', { name: 'Username' })\n",
         "location": "AC-003-d.spec.ts:6"
       },
-      "batch": "2026-09-16T07-48-42-722Z.json"
+      "batch": "2026-09-17T08-27-19-067Z.json"
     },
     {
       "id": "AC-004-a",
@@ -165,12 +164,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 90618,
+      "durationMs": 61591,
       "failure": {
-        "message": "Test timeout of 90000ms exceeded.",
+        "message": "TimeoutError: locator.fill: Timeout 60000ms exceeded.\nCall log:\n  - waiting for getByRole('textbox', { name: 'Username' })\n",
         "location": "AC-004-a.spec.ts:6"
       },
-      "batch": "2026-09-16T07-48-42-722Z.json"
+      "batch": "2026-09-17T08-27-19-067Z.json"
     },
     {
       "id": "AC-004-b",
@@ -182,12 +181,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 90391,
+      "durationMs": 62046,
       "failure": {
-        "message": "Test timeout of 90000ms exceeded.",
+        "message": "TimeoutError: locator.fill: Timeout 60000ms exceeded.\nCall log:\n  - waiting for getByRole('textbox', { name: 'Username' })\n",
         "location": "AC-004-b.spec.ts:6"
       },
-      "batch": "2026-09-16T07-48-42-722Z.json"
+      "batch": "2026-09-17T08-27-19-067Z.json"
     },
     {
       "id": "AC-005-a",
@@ -199,12 +198,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 90494,
+      "durationMs": 61518,
       "failure": {
-        "message": "Test timeout of 90000ms exceeded.",
+        "message": "TimeoutError: locator.fill: Timeout 60000ms exceeded.\nCall log:\n  - waiting for getByRole('textbox', { name: 'Username' })\n",
         "location": "AC-005-a.spec.ts:6"
       },
-      "batch": "2026-09-16T07-48-42-722Z.json"
+      "batch": "2026-09-17T08-27-19-067Z.json"
     },
     {
       "id": "AC-005-b",
@@ -216,12 +215,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 90505,
+      "durationMs": 61487,
       "failure": {
-        "message": "Test timeout of 90000ms exceeded.",
+        "message": "TimeoutError: locator.fill: Timeout 60000ms exceeded.\nCall log:\n  - waiting for getByRole('textbox', { name: 'Username' })\n",
         "location": "AC-005-b.spec.ts:6"
       },
-      "batch": "2026-09-16T07-48-42-722Z.json"
+      "batch": "2026-09-17T08-27-19-067Z.json"
     },
     {
       "id": "AC-006-a",
@@ -233,12 +232,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 90421,
+      "durationMs": 61466,
       "failure": {
-        "message": "Test timeout of 90000ms exceeded.",
+        "message": "TimeoutError: locator.fill: Timeout 60000ms exceeded.\nCall log:\n  - waiting for getByRole('textbox', { name: 'Username' })\n",
         "location": "AC-006-a.spec.ts:6"
       },
-      "batch": "2026-09-16T07-48-42-722Z.json"
+      "batch": "2026-09-17T08-27-19-067Z.json"
     },
     {
       "id": "AC-006-b",
@@ -250,12 +249,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 90671,
+      "durationMs": 61481,
       "failure": {
-        "message": "Test timeout of 90000ms exceeded.",
+        "message": "TimeoutError: locator.fill: Timeout 60000ms exceeded.\nCall log:\n  - waiting for getByRole('textbox', { name: 'Username' })\n",
         "location": "AC-006-b.spec.ts:6"
       },
-      "batch": "2026-09-16T08-17-42-382Z.json"
+      "batch": "2026-09-17T08-27-19-067Z.json"
     },
     {
       "id": "AC-007-a",
@@ -267,12 +266,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 90658,
+      "durationMs": 61465,
       "failure": {
-        "message": "Test timeout of 90000ms exceeded.",
+        "message": "TimeoutError: locator.fill: Timeout 60000ms exceeded.\nCall log:\n  - waiting for getByRole('textbox', { name: 'Username' })\n",
         "location": "AC-007-a.spec.ts:6"
       },
-      "batch": "2026-09-16T07-48-42-722Z.json"
+      "batch": "2026-09-17T08-27-19-067Z.json"
     },
     {
       "id": "AC-007-b",
@@ -284,12 +283,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 90426,
+      "durationMs": 61272,
       "failure": {
-        "message": "Test timeout of 90000ms exceeded.",
+        "message": "TimeoutError: locator.fill: Timeout 60000ms exceeded.\nCall log:\n  - waiting for getByRole('textbox', { name: 'Username' })\n",
         "location": "AC-007-b.spec.ts:6"
       },
-      "batch": "2026-09-16T07-48-42-722Z.json"
+      "batch": "2026-09-17T08-27-19-067Z.json"
     },
     {
       "id": "AC-007-c",
@@ -301,12 +300,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 90425,
+      "durationMs": 61374,
       "failure": {
-        "message": "Test timeout of 90000ms exceeded.",
+        "message": "TimeoutError: locator.fill: Timeout 60000ms exceeded.\nCall log:\n  - waiting for getByRole('textbox', { name: 'Username' })\n",
         "location": "AC-007-c.spec.ts:6"
       },
-      "batch": "2026-09-16T07-48-42-722Z.json"
+      "batch": "2026-09-17T08-27-19-067Z.json"
     },
     {
       "id": "AC-008-a",
@@ -318,12 +317,12 @@
       "healed": false,
       "healAttempts": 0,
       "flaky": false,
-      "durationMs": 90421,
+      "durationMs": 61376,
       "failure": {
-        "message": "Test timeout of 90000ms exceeded.",
+        "message": "TimeoutError: locator.fill: Timeout 60000ms exceeded.\nCall log:\n  - waiting for getByRole('textbox', { name: 'Username' })\n",
         "location": "AC-008-a.spec.ts:6"
       },
-      "batch": "2026-09-16T07-48-42-722Z.json"
+      "batch": "2026-09-17T08-27-19-067Z.json"
     },
     {
       "id": "AC-008-b",
